@@ -1,0 +1,19 @@
+{
+  "name": "rest_api_node_ts_server",
+  "version": "1.0.0",
+  "description": "REST API'S con Express y TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BreisonMendez124/REST-API-Express.git"
+  },
+  "author": "Breison Mendez - Tutoria Juan de la torre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BreisonMendez124/REST-API-Express/issues"
+  },
+  "homepage": "https://github.com/BreisonMendez124/REST-API-Express#readme"
+}
