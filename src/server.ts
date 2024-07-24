@@ -15,7 +15,11 @@ async function connectDB(){
         console.log( colors.red.bold(  'Hubo un error al conectar a la base de datos' ) );
     }
 }
+//Instanciar express
 const server = express();
+
+//Leer datos de formularios
+server.use( express.json( )) 
 server.use('/api/products' , router );
 connectDB()
 
