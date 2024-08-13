@@ -2,31 +2,27 @@ import { Request, Response } from "express"
 import Product from "../models/Product.model"
 
 export const getProducts = async ( req : Request , res: Response ) => { 
-    try{ 
-        const products = await Product.findAll({ 
-            order: [ 
-                ['price' , 'DESC']
-            ]
-        })
-        res.json({ data: products })
-    }catch( error ){ 
-        console.log("🚀 ~ getProducts ~ error:", error);
-    }
+ 
+    const products = await Product.findAll({ 
+        order: [ 
+            ['price' , 'DESC']
+        ]
+    })
+    res.json({ data: products })
+
 }
 
 export const getProductById = async ( req : Request , res: Response ) => { 
-    try{ 
-        const { id } =  req.params;
-        const product = await Product.findByPk( id );
-        if(!product){ 
-            return res.status(404).json({ 
-                error: 'Producto No Encontrado'
-            })
-        }
-        res.json({ data: product })
-    }catch( error ){ 
-        console.log("🚀 ~ getProducts ~ error:", error);
+
+    const { id } =  req.params;
+    const product = await Product.findByPk( id );
+    if(!product){ 
+        return res.status(404).json({ 
+            error: 'Producto No Encontrado'
+        })
     }
+    res.json({ data: product })
+
 }
 
 export const createProduct = async( req : Request , res: Response ) => { 
@@ -42,16 +38,12 @@ export const createProduct = async( req : Request , res: Response ) => {
     //         .run( req )
 
     //Creacion del producto
-    try {
-        const product = await Product.create( req.body );
-        res.json({ 
-            ok: true,
-            msg:'Producto guardado con exito!',
-            data: product 
-        })
-    } catch (error) {
-        console.log("🚀 ~ createProduct ~ error:", error)
-    }
+    const product = await Product.create( req.body );
+    res.status(201).json({ 
+        ok: true,
+        msg:'Producto guardado con exito!',
+        data: product 
+    })
 }
 
 export const updateProduct = async ( req : Request , res: Response ) => { 
