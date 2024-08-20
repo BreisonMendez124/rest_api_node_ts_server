@@ -1,7 +1,9 @@
 import express from 'express'
 import router from './router';
+import swaggerUi from 'swagger-ui-express'
 import db from './config/db';
 import colors from 'colors'
+import swaggerSpec from './config/swagger';
 
 
 //Conecta a base de datos
@@ -22,5 +24,7 @@ const server = express();
 //Leer datos de formularios
 server.use( express.json( )) 
 server.use('/api/products' , router );
+
+server.use('/docs' , swaggerUi.serve  , swaggerUi.setup( swaggerSpec ))
 
 export default server
