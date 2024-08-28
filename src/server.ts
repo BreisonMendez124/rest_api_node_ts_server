@@ -30,6 +30,7 @@ const corsOptions: CorsOptions = {
             callback( null , true )
         }else { callback( new Error('Error de CORS')) }
     }
+    
 }
 
 server.use( cors( corsOptions ) );
