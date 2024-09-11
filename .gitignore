@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 .env
+package-lock.json
+dist
 
 coverage
 # Editor directories and files
