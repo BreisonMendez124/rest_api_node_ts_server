@@ -19,6 +19,8 @@ export async function connectDB(){
         console.log( colors.red.bold(  'Hubo un error al conectar a la base de datos' ) );
     }
 }
+
+
 connectDB()
 //Instanciar express
 const server = express();
